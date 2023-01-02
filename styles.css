@@ -1,0 +1,27 @@
+#random-palette {
+    flex-direction: column;
+    width: 70%;
+}
+
+.unlock-icon, .lock-icon {
+   height: 20px; 
+   width: auto; 
+}
+
+body, #color-boxes, #random-palette, .hex-and-lock {
+    display: flex;
+
+}
+
+#color-boxes {
+    justify-content: space-around;
+
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    border: black solid 2px;
+    border-radius: 4px;
+}
+
