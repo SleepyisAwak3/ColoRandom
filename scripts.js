@@ -12,9 +12,11 @@ var hexCode2 = document.querySelector("#hex2")
 var hexCode3 = document.querySelector("#hex3")
 var hexCode4 = document.querySelector("#hex4")
 var hexCode5 = document.querySelector("#hex5")
+var newPaletteButton = document.querySelector("#new-palette-button")
 
 //listeners
 window.addEventListener("load", showPalette)
+newPaletteButton.addEventListener("click", showPalette)
 
 //functions
 function showPalette() {
@@ -43,7 +45,11 @@ function createPalette() {
     hexCode3.innerText = randomPalette.colorPalette[2].color
     hexCode4.innerText = randomPalette.colorPalette[3].color
     hexCode5.innerText = randomPalette.colorPalette[4].color
-
 }
 
 
+
+//=========NOTES=========//
+//===> A potential refactoring opportunity, more research is needed.
+// var test = document.querySelectorAll(".hex-and-lock")
+// test[0].firstChild.nextSibling.innerText = randomPalette.colorPalette[0].color
