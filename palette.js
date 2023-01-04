@@ -6,7 +6,7 @@ class Palette {
   replaceColors() {
     for (var i = 0; i < this.colorPalette.length; i++) {
       if (this.colorPalette[i].color.locked === false) {
-        this.colorPalette.color.replaceColors()
+        this.colorPalette.color.createColor()
       };
     };
   };
@@ -17,4 +17,3 @@ class Palette {
   };
 };
 
-module.exports = Palette;
