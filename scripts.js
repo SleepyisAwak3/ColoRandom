@@ -7,6 +7,11 @@ var box2 = document.querySelector("#box2")
 var box3 = document.querySelector("#box3")
 var box4 = document.querySelector("#box4")
 var box5 = document.querySelector("#box5")
+var hexCode1 = document.querySelector("#hex1")
+var hexCode2 = document.querySelector("#hex2")
+var hexCode3 = document.querySelector("#hex3")
+var hexCode4 = document.querySelector("#hex4")
+var hexCode5 = document.querySelector("#hex5")
 
 //listeners
 window.addEventListener("load", showPalette)
@@ -14,7 +19,6 @@ window.addEventListener("load", showPalette)
 //functions
 function showPalette() {
 createPalette()
-
 }
 
 function createPalette() {
@@ -34,6 +38,12 @@ function createPalette() {
     box3.style.backgroundColor = randomPalette.colorPalette[2].color
     box4.style.backgroundColor = randomPalette.colorPalette[3].color
     box5.style.backgroundColor = randomPalette.colorPalette[4].color
+    hexCode1.innerText = randomPalette.colorPalette[0].color
+    hexCode2.innerText = randomPalette.colorPalette[1].color
+    hexCode3.innerText = randomPalette.colorPalette[2].color
+    hexCode4.innerText = randomPalette.colorPalette[3].color
+    hexCode5.innerText = randomPalette.colorPalette[4].color
+
 }
 
 
