@@ -4,6 +4,7 @@ var color3 = new Color();
 var color4 = new Color();
 var color5 = new Color();
 var randomPalette = new Palette(color1, color2, color3, color4, color5);
+var savedPalettes = []
 
 
 //queryselectors
@@ -18,11 +19,16 @@ var hexCode3 = document.querySelector("#hex3");
 var hexCode4 = document.querySelector("#hex4");
 var hexCode5 = document.querySelector("#hex5");
 var newPaletteButton = document.querySelector("#new-palette-button");
+var savePaletteButton = document.querySelector("#save-palette-button");
+var savedPaletteSection = document.querySelector(".saved-palettes");
 
 //listeners
 window.addEventListener("load", showPalette);
 newPaletteButton.addEventListener("click", function() {
     replaceColor(randomPalette)
+})
+savePaletteButton.addEventListener("click", function() {
+    savePalette(randomPalette, savedPalettes)
 })
 
 //functions
@@ -55,6 +61,19 @@ function replaceColor(randomPalette) {
     hexCode3.innerText = randomPalette.colorPalette[2].color;
     hexCode4.innerText = randomPalette.colorPalette[3].color;
     hexCode5.innerText = randomPalette.colorPalette[4].color;
+}
+
+function savePalette(randomPalette, savedPalettes) {
+    console.log(savedPalettes)
+    if (!savedPalettes.includes(randomPalette)) {
+        savedPalettes.push(randomPalette)
+    }
+    console.log(savedPalettes)
+  // push random palate into saved Palettes array
+  // generate new instance of Palette
+  // generate a trash can and palate (innerHTML)
+  // for loop to loop through and show
+  //
 }
 
 //=========NOTES=========//
