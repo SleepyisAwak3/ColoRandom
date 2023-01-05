@@ -1,7 +1,8 @@
 class Color {
   constructor() {
     this.locked = false;
-    this.color ;
+    this.color;
+    this.createColor();
   } 
   createColor() {
     var hexCharacters = "0123456789ABCDEF";
