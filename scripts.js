@@ -21,6 +21,12 @@ var hexCode5 = document.querySelector("#hex5");
 var newPaletteButton = document.querySelector("#new-palette-button");
 var savePaletteButton = document.querySelector("#save-palette-button");
 var savedPaletteSection = document.querySelector(".saved-palettes");
+var savedMiniPalettes = document.querySelector(".saved-mini-palettes")
+var miniBox1 = document.querySelector("#mini-box1");
+var miniBox2 = document.querySelector("#mini-box2");
+var miniBox3 = document.querySelector("#mini-box3");
+var miniBox4 = document.querySelector("#mini-box4");
+var miniBox5 = document.querySelector("#mini-box5");
 
 //listeners
 window.addEventListener("load", showPalette);
@@ -64,16 +70,25 @@ function replaceColor(randomPalette) {
 }
 
 function savePalette(randomPalette, savedPalettes) {
-    console.log(savedPalettes)
     if (!savedPalettes.includes(randomPalette)) {
         savedPalettes.push(randomPalette)
     }
-    console.log(savedPalettes)
   // push random palate into saved Palettes array
   // generate new instance of Palette
   // generate a trash can and palate (innerHTML)
-  // for loop to loop through and show
   //
+  displaySavedPalettes(savedPalettes);
+}
+
+//loop through saved palates and show 5 colors per palette after clicking saved palette button.
+//loop 
+function displaySavedPalettes(savedPalettes) {
+    // savedMiniPalettes.innerHTML = ""
+    miniBox1.style.backgroundColor = savedPalettes[0].colorPalette[0].color;
+    miniBox2.style.backgroundColor = savedPalettes[0].colorPalette[1].color;
+    miniBox3.style.backgroundColor = savedPalettes[0].colorPalette[2].color;
+    miniBox4.style.backgroundColor = savedPalettes[0].colorPalette[3].color;
+    miniBox5.style.backgroundColor = savedPalettes[0].colorPalette[4].color;
 }
 
 //=========NOTES=========//
