@@ -1,5 +1,10 @@
 class Palette {
-  constructor(color0, color1, color2, color3, color4) {
+  constructor() {
+    var color0 = new Color();
+    var color1 = new Color();
+    var color2 = new Color();
+    var color3 = new Color();
+    var color4 = new Color();
     this.colorPalette = [color0, color1, color2, color3, color4];
     this.id = Date.now();
   }
