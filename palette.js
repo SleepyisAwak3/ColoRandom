@@ -1,6 +1,6 @@
 class Palette {
-  constructor(color1, color2, color3, color4, color5) {
-    this.colorPalette = [color1, color2, color3, color4, color5];
+  constructor(color0, color1, color2, color3, color4) {
+    this.colorPalette = [color0, color1, color2, color3, color4];
     this.id = Date.now();
   }
   replaceColors() {
