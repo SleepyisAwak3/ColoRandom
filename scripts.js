@@ -6,7 +6,6 @@ var color5 = new Color();
 var randomPalette = new Palette(color1, color2, color3, color4, color5);
 var savedPalettes = []
 
-
 //queryselectors
 var box1 =  document.querySelector("#box1");
 var box2 = document.querySelector("#box2");
@@ -73,22 +72,30 @@ function savePalette(randomPalette, savedPalettes) {
     if (!savedPalettes.includes(randomPalette)) {
         savedPalettes.push(randomPalette)
     }
-  // push random palate into saved Palettes array
-  // generate new instance of Palette
-  // generate a trash can and palate (innerHTML)
-  //
   displaySavedPalettes(savedPalettes);
 }
 
-//loop through saved palates and show 5 colors per palette after clicking saved palette button.
-//loop 
 function displaySavedPalettes(savedPalettes) {
-    // savedMiniPalettes.innerHTML = ""
-    miniBox1.style.backgroundColor = savedPalettes[0].colorPalette[0].color;
-    miniBox2.style.backgroundColor = savedPalettes[0].colorPalette[1].color;
-    miniBox3.style.backgroundColor = savedPalettes[0].colorPalette[2].color;
-    miniBox4.style.backgroundColor = savedPalettes[0].colorPalette[3].color;
-    miniBox5.style.backgroundColor = savedPalettes[0].colorPalette[4].color;
+    savedMiniPalettes.innerHTML = ""
+    for (var i = 0; i < savedPalettes.length; i++) {
+        savedMiniPalettes.innerHTML += `
+         <section class="saved-mini-palette">
+              <div class="box mini" id="mini-box1" style= "background-color: ${savedPalettes[i].colorPalette[0].color};"></div>
+              <div class="box mini" id="mini-box2" style= "background-color: ${savedPalettes[i].colorPalette[1].color};"></div>
+              <div class="box mini" id="mini-box3" style= "background-color: ${savedPalettes[i].colorPalette[2].color};"></div>
+              <div class="box mini" id="mini-box4" style= "background-color: ${savedPalettes[i].colorPalette[3].color};"></div>
+              <div class="box mini" id="mini-box5" style= "background-color: ${savedPalettes[i].colorPalette[4].color};"></div>
+              <p class="trash" data-delete-id="${savedPalettes[i].id}"> 🗑 </p>
+        </section>
+       `;        
+    }
+    color1 = new Color();
+    color2 = new Color();
+    color3 = new Color();
+    color4 = new Color();
+    color5 = new Color();
+    randomPalette = new Palette(color1, color2, color3, color4, color5);
+    showPalette();
 }
 
 //=========NOTES=========//
