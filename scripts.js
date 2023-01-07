@@ -27,7 +27,7 @@ var miniBox3 = document.querySelector("#mini-box3");
 var miniBox4 = document.querySelector("#mini-box4");
 var lockIcons = document.querySelectorAll(".lock-icon");
 var unlockIcons = document.querySelectorAll(".unlock-icon")
-var paletteContainer = document.querySelector(".random-palette");
+var mainPaletteContainer = document.querySelector("#main-palette-container");
 var savedPalettesSection = document.querySelector("#saved-palettes-container");
 
 //listeners
@@ -43,15 +43,12 @@ savePaletteButton.addEventListener("click", function () {
     showPalette(randomPalette);
 })
 
-paletteContainer.addEventListener("click", function (event) {
+mainPaletteContainer.addEventListener("click", function (event) {
     toggleColorLock(event, randomPalette);
 })
 savedPalettesSection.addEventListener('click', function(event) {
     deleteSavedPalette(event, savedPalettes)
 })
-
-
-
 
 //functions
 function showPalette(palette) {
@@ -91,8 +88,11 @@ function displaySavedPalettes(paletteArray) {
 }
 
 function toggleColorLock(event, palette) {
-    palette.toggleLock(event.target.dataset.colorIndex);
-    updateIcon(event, palette);
+    if (event.target.dataset.colorIndex) {
+        palette.toggleLock(event.target.dataset.colorIndex);
+        updateIcon(event, palette);
+    }
+    
 }
 
 function updateIcon(event, palette) {
