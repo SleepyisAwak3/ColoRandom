@@ -37,6 +37,10 @@ savePaletteButton.addEventListener("click", function() {
     savePalette(randomPalette, savedPalettes)
 })
 
+box0.addEventListener("click", function() {
+    toggleIcon(event, randomPalette)
+})
+
 //functions
 function showPalette(palette) {
     // boxes and hexCodes have the same length
@@ -72,12 +76,27 @@ function displaySavedPalettes(paletteArray) {
         </section>
        `;        
     }
-
     randomPalette = new Palette();
     showPalette(randomPalette);
 }
 
+function toggleIcon (event, palette) {
+    if (document.getElementById('box0').clicked == true) {
+        console.log(palette)
+        // if (!palette.colorPalette[0].locked) {
+            palette.lockColor()
+        
+    }
+}
+
+
 //=========NOTES=========//
+
+// Event listeners for each indiviual boxes 
+// If boxes are clicked the lock will show and the unlock will hide. 
+// When it's clicked this.locked will be set to true instead of false and vice versa.
+// After it updates the color class it should check if it set to true or false and show the corresponding icon. 
+// 
 //===> A potential refactoring opportunity, more research is needed.
 // var test = document.querySelectorAll(".hex-and-lock")
 // test[0].firstChild.nextSibling.innerText = randomPalette.colorPalette[0].color
