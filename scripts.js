@@ -27,9 +27,8 @@ var miniBox3 = document.querySelector("#mini-box3");
 var miniBox4 = document.querySelector("#mini-box4");
 var lockIcons = document.querySelectorAll(".lock-icon");
 var unlockIcons = document.querySelectorAll(".unlock-icon")
-
-
-var paletteContainer = document.querySelector('.random-palette');
+var paletteContainer = document.querySelector(".random-palette");
+var savedPalettesSection = document.querySelector("#saved-palettes-container");
 
 //listeners
 window.addEventListener("load", function () {
@@ -40,11 +39,17 @@ newPaletteButton.addEventListener("click", function () {
 })
 savePaletteButton.addEventListener("click", function () {
     savePalette(randomPalette, savedPalettes);
+    randomPalette = new Palette();
+    showPalette(randomPalette);
 })
 
 paletteContainer.addEventListener("click", function (event) {
     toggleColorLock(event, randomPalette);
 })
+savedPalettesSection.addEventListener('click', function(event) {
+    deleteSavedPalette(event, savedPalettes)
+})
+
 
 
 
@@ -73,7 +78,7 @@ function displaySavedPalettes(paletteArray) {
     savedMiniPalettes.innerHTML = "";
     for (var i = 0; i < paletteArray.length; i++) {
         savedMiniPalettes.innerHTML += `
-        <section class="saved-mini-palette">
+        <section class="saved-mini-palette" data-palette-index="${i}">
               <div class="box mini" id="mini-box0" style= "background-color: ${paletteArray[i].colorPalette[0].color};"></div>
               <div class="box mini" id="mini-box1" style= "background-color: ${paletteArray[i].colorPalette[1].color};"></div>
               <div class="box mini" id="mini-box2" style= "background-color: ${paletteArray[i].colorPalette[2].color};"></div>
@@ -83,9 +88,6 @@ function displaySavedPalettes(paletteArray) {
         </section>
        `;
     }
-    //This behavior belongs somewhere else because it is not "displaying saved palettes" - its updating the datamodel
-    randomPalette = new Palette();
-    showPalette(randomPalette);
 }
 
 function toggleColorLock(event, palette) {
@@ -102,6 +104,15 @@ function updateIcon(event, palette) {
         unlockIcons[event.target.dataset.colorIndex].classList.remove("hidden");
         }
 }
+
+function deleteSavedPalette(event, paletteArray) {
+
+    if(event.target.classList.contains("trash")) {
+        paletteArray.splice(event.target.parentElement.dataset.paletteIndex, 1) 
+        displaySavedPalettes(paletteArray);
+    }
+}
+
 
 
 //=========NOTES=========//
