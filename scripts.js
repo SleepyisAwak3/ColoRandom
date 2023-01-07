@@ -25,6 +25,9 @@ var miniBox1 = document.querySelector("#mini-box1");
 var miniBox2 = document.querySelector("#mini-box2");
 var miniBox3 = document.querySelector("#mini-box3");
 var miniBox4 = document.querySelector("#mini-box4");
+var lockIcons = document.querySelectorAll(".lock-icon");
+var unlockIcons = document.querySelectorAll(".unlock-icon")
+
 
 var paletteContainer = document.querySelector('.random-palette');
 
@@ -87,7 +90,19 @@ function displaySavedPalettes(paletteArray) {
 
 function toggleColorLock(event, palette) {
     palette.toggleLock(event.target.dataset.colorIndex);
+    updateIcon(event, palette);
 }
+
+function updateIcon(event, palette) {
+    if (palette.colorPalette[event.target.dataset.colorIndex].locked) {
+        lockIcons[event.target.dataset.colorIndex].classList.remove("hidden");
+        unlockIcons[event.target.dataset.colorIndex].classList.add("hidden");
+    } else {
+        lockIcons[event.target.dataset.colorIndex].classList.add("hidden");
+        unlockIcons[event.target.dataset.colorIndex].classList.remove("hidden");
+        }
+}
+
 
 //=========NOTES=========//
 //===> A potential refactoring opportunity, more research is needed.
