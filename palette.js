@@ -16,9 +16,12 @@ class Palette {
     }
   }
   lockColor() {
+    console.log("before")
     for (var i = 0; i < this.colorPalette.length; i++) {
-      this.colorPalette[i].color.locked = true; 
+      if (event.target.id)
+      this.colorPalette[0].locked = true; 
+      console.log("after")
     }
   }
 }
-
+// lockColor this.colorPalette[0] needs to be more dynamic after 
