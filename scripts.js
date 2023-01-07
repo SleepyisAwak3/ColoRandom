@@ -2,7 +2,7 @@ var randomPalette = new Palette();
 var savedPalettes = [];
 
 //queryselectors
-var box0 =  document.querySelector("#box0");
+var box0 = document.querySelector("#box0");
 var box1 = document.querySelector("#box1");
 var box2 = document.querySelector("#box2");
 var box3 = document.querySelector("#box3");
@@ -26,26 +26,30 @@ var miniBox2 = document.querySelector("#mini-box2");
 var miniBox3 = document.querySelector("#mini-box3");
 var miniBox4 = document.querySelector("#mini-box4");
 
+var paletteContainer = document.querySelector('.random-palette');
+
 //listeners
-window.addEventListener("load", function() {
-    showPalette(randomPalette)
+window.addEventListener("load", function () {
+    showPalette(randomPalette);
 })
-newPaletteButton.addEventListener("click", function() {
-    replaceColor(randomPalette)
+newPaletteButton.addEventListener("click", function () {
+    replaceColor(randomPalette);
 })
-savePaletteButton.addEventListener("click", function() {
-    savePalette(randomPalette, savedPalettes)
+savePaletteButton.addEventListener("click", function () {
+    savePalette(randomPalette, savedPalettes);
 })
 
-box0.addEventListener("click", function() {
-    toggleIcon(event, randomPalette)
+paletteContainer.addEventListener("click", function (event) {
+    toggleColorLock(event, randomPalette);
 })
+
+
 
 //functions
 function showPalette(palette) {
-    // boxes and hexCodes have the same length
     for (var i = 0; i < boxes.length; i++) {
         boxes[i].style.backgroundColor = palette.colorPalette[i].color;
+        boxes[i].dataset.colorIndex = i;
         hexCodes[i].innerText = palette.colorPalette[i].color;
     }
 }
@@ -57,13 +61,13 @@ function replaceColor(palette) {
 
 function savePalette(palette, paletteArray) {
     if (!paletteArray.includes(palette)) {
-        paletteArray.push(palette)
+        paletteArray.push(palette);
     }
-  displaySavedPalettes(paletteArray);
+    displaySavedPalettes(paletteArray);
 }
 
 function displaySavedPalettes(paletteArray) {
-    savedMiniPalettes.innerHTML = ""
+    savedMiniPalettes.innerHTML = "";
     for (var i = 0; i < paletteArray.length; i++) {
         savedMiniPalettes.innerHTML += `
         <section class="saved-mini-palette">
@@ -74,29 +78,18 @@ function displaySavedPalettes(paletteArray) {
               <div class="box mini" id="mini-box4" style= "background-color: ${paletteArray[i].colorPalette[4].color};"></div>
               <p class="trash" data-delete-id="${paletteArray[i].id}"> 🗑 </p>
         </section>
-       `;        
+       `;
     }
+    //This behavior belongs somewhere else because it is not "displaying saved palettes" - its updating the datamodel
     randomPalette = new Palette();
     showPalette(randomPalette);
 }
 
-function toggleIcon (event, palette) {
-    if (document.getElementById('box0').clicked == true) {
-        console.log(palette)
-        // if (!palette.colorPalette[0].locked) {
-            palette.lockColor()
-        
-    }
+function toggleColorLock(event, palette) {
+    palette.toggleLock(event.target.dataset.colorIndex);
 }
 
-
 //=========NOTES=========//
-
-// Event listeners for each indiviual boxes 
-// If boxes are clicked the lock will show and the unlock will hide. 
-// When it's clicked this.locked will be set to true instead of false and vice versa.
-// After it updates the color class it should check if it set to true or false and show the corresponding icon. 
-// 
 //===> A potential refactoring opportunity, more research is needed.
 // var test = document.querySelectorAll(".hex-and-lock")
 // test[0].firstChild.nextSibling.innerText = randomPalette.colorPalette[0].color
