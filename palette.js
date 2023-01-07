@@ -17,6 +17,5 @@ class Palette {
 	}
 	toggleLock(colorIndex) {
 		this.colorPalette[colorIndex].locked = !this.colorPalette[colorIndex].locked;
-		console.log(this.colorPalette);
 	}
 }
