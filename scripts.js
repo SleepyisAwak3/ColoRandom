@@ -64,11 +64,21 @@ function replaceColor(palette) {
     showPalette(palette);
 }
 
+function resetLocks(palette) {
+    for(var i = 0; i < palette.colorPalette.length; i++) {
+        if(!palette.colorPalette.locked) {
+        lockIcons[i].classList.add("hidden");
+        unlockIcons[i].classList.remove("hidden");
+        }
+    }
+}
+
 function savePalette(palette, paletteArray) {
     if (!paletteArray.includes(palette)) {
         paletteArray.push(palette);
     }
     displaySavedPalettes(paletteArray);
+    resetLocks(palette);
 }
 
 function displaySavedPalettes(paletteArray) {
@@ -106,12 +116,14 @@ function updateIcon(event, palette) {
 }
 
 function deleteSavedPalette(event, paletteArray) {
-
     if(event.target.classList.contains("trash")) {
         paletteArray.splice(event.target.parentElement.dataset.paletteIndex, 1) 
         displaySavedPalettes(paletteArray);
     }
 }
+
+
+
 
 
 
