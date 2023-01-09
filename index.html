@@ -1,80 +1,75 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>ColoRandom🎨</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>ColoRandom🎨</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <section class="random-palette">
-        <h1>COLORANDOM</h1>
-        <div id="main-palette-container">
-            <section id="color-boxes">
-                <section id="color0">
-                    <div class="box" id="box0">
-                    </div>
-                    <div class="hex-and-lock">
-                        <p id="hex0"></p>
-                        <img class="unlock-icon" data-unlock="0" src="unlock image.png">
-                        <img class="lock-icon hidden" data-lock="0" src="locked image.png">
-                    </div>
-                </section>
-                <section id="color1">
-                    <div class="box" id="box1">
-                    </div>
-                    <div class="hex-and-lock">
-                        <p id="hex1"></p>
-                        <img class="unlock-icon" data-unlock="1" src="unlock image.png">
-                        <img class="lock-icon hidden" data-lock="1" src="locked image.png">
-                    </div>
-                </section>
-                <section id="color2">
-                    <div class="box" id="box2">
-                    </div>
-                    <div class="hex-and-lock">
-                        <p id="hex2"></p>
-                        <img class="unlock-icon" data-unlock="2" src="unlock image.png">
-                        <img class="lock-icon hidden" data-lock="2" src="locked image.png">
-                    </div>
-                </section>
-                <section id="color3">
-                    <div class="box" id="box3">
-                    </div>
-                    <div class="hex-and-lock">
-                        <p id="hex3"></p>
-                        <img class="unlock-icon" data-unlock="3" src="unlock image.png">
-                        <img class="lock-icon hidden" data-lock="3" src="locked image.png">
-                    </div>
-                </section>
-                <section id="color4">
-                    <div class="box" id="box4">
-                    </div>
-                    <div class="hex-and-lock">
-                        <p id="hex4"></p>
-                        <img class="unlock-icon" data-unlock="4" src="unlock image.png">
-                        <img class="lock-icon hidden" data-lock="4" src="locked image.png">
-                    </div>
-                </section>
-            </section>
+  <section class="random-palette">
+    <h1>COLORANDOM</h1>
+    <section class="main-palette-container" id="color-boxes">
+      <section id="color0">
+        <div class="box" data-color-index="0" id="box0">
         </div>
-        <section class="main-buttons-section">
-            <button id="new-palette-button">New Palette</button>
-            <button id="save-palette-button">Save Palette</button>
-        </section>
+        <div class="hex-and-lock">
+          <p id="hex0"></p>
+          <img class="unlock-icon" data-unlock="0" src="unlock image.png">
+          <img class="lock-icon hidden" data-lock="0" src="locked image.png">
+        </div>
+      </section>
+      <section id="color1">
+        <div class="box" data-color-index="1" id="box1">
+        </div>
+        <div class="hex-and-lock">
+          <p id="hex1"></p>
+          <img class="unlock-icon" data-unlock="1" src="unlock image.png">
+          <img class="lock-icon hidden" data-lock="1" src="locked image.png">
+        </div>
+      </section>
+      <section id="color2">
+        <div class="box" data-color-index="2" id="box2">
+        </div>
+        <div class="hex-and-lock">
+          <p id="hex2"></p>
+          <img class="unlock-icon" data-unlock="2" src="unlock image.png">
+          <img class="lock-icon hidden" data-lock="2" src="locked image.png">
+        </div>
+      </section>
+      <section id="color3">
+        <div class="box" data-color-index="3" id="box3">
+        </div>
+        <div class="hex-and-lock">
+          <p id="hex3"></p>
+          <img class="unlock-icon" data-unlock="3" src="unlock image.png">
+          <img class="lock-icon hidden" data-lock="3" src="locked image.png">
+        </div>
+      </section>
+      <section id="color4">
+        <div class="box" data-color-index="4" id="box4">
+        </div>
+        <div class="hex-and-lock">
+          <p id="hex4"></p>
+          <img class="unlock-icon" data-unlock="4" src="unlock image.png">
+          <img class="lock-icon hidden" data-lock="4" src="locked image.png">
+        </div>
+      </section>
     </section>
-    <section class="saved-palettes" id="saved-palettes-container">
-        <h2>Saved Palettes</h2>
-        <section class="saved-mini-palettes">
-        </section>
+    <section class="main-buttons-section">
+      <button id="new-palette-button">New Palette</button>
+      <button id="save-palette-button">Save Palette</button>
     </section>
-    <script src="color.js"></script>
-    <script src="palette.js"></script>
-    <script src="scripts.js"></script>
+  </section>
+  <section class="saved-palettes" id="saved-palettes-container">
+    <h2>Saved Palettes</h2>
+    <section class="saved-mini-palettes">
+    </section>
+  </section>
+  <script src="color.js"></script>
+  <script src="palette.js"></script>
+  <script src="scripts.js"></script>
 </body>
-
 </html>
