@@ -30,7 +30,7 @@ window.addEventListener("load", function () {
 })
 
 newPaletteButton.addEventListener("click", function () {
-    changePalette(currentPalette);
+    currentPalette.replaceColors();
     showPalette(currentPalette);
 })
 
@@ -61,10 +61,6 @@ function showPalette(palette) {
         hexCodes[i].innerText = palette.colorPalette[i].color;
         boxes[i].style.backgroundColor = palette.colorPalette[i].color;
     }
-}
-
-function changePalette(palette) {
-    palette.replaceColors();
 }
 
 function resetLocks(palette) {
