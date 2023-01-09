@@ -2,7 +2,7 @@
 var currentPalette = new Palette();
 var savedPalettes = [];
 
-/*----------------QuerySelectors----------------*/
+/*----------------DOM Elements----------------*/
 var box0 = document.querySelector("#box0");
 var box1 = document.querySelector("#box1");
 var box2 = document.querySelector("#box2");
@@ -15,11 +15,6 @@ var hexCode2 = document.querySelector("#hex2");
 var hexCode3 = document.querySelector("#hex3");
 var hexCode4 = document.querySelector("#hex4");
 var hexCodes = [hexCode0, hexCode1, hexCode2, hexCode3, hexCode4];
-var miniBox0 = document.querySelector("#mini-box0");
-var miniBox1 = document.querySelector("#mini-box1");
-var miniBox2 = document.querySelector("#mini-box2");
-var miniBox3 = document.querySelector("#mini-box3");
-var miniBox4 = document.querySelector("#mini-box4");
 var lockIcons = document.querySelectorAll(".lock-icon");
 var unlockIcons = document.querySelectorAll(".unlock-icon")
 var savedPaletteSection = document.querySelector(".saved-palettes");
@@ -48,18 +43,21 @@ savePaletteButton.addEventListener("click", function () {
 })
 
 mainPaletteContainer.addEventListener("click", function (event) {
-    toggleColorLock(event, currentPalette);
+    if (event.target.dataset.colorIndex) {
+        toggleColorLock(event, currentPalette);
+    }
 })
 
 savedPalettesSection.addEventListener('click', function(event) {
-    deleteSavedPalette(event, savedPalettes);
-    displaySavedPalettes(savedPalettes);
+    if(event.target.classList.contains("trash")) {
+        savedPalettes.splice(event.target.parentElement.dataset.paletteIndex, 1) 
+        displaySavedPalettes(savedPalettes);
+    }
 })
 
 /*-------------Functions-----------------*/
 function showPalette(palette) {
     for (var i = 0; i < boxes.length; i++) {
-        boxes[i].dataset.colorIndex = i;
         hexCodes[i].innerText = palette.colorPalette[i].color;
         boxes[i].style.backgroundColor = palette.colorPalette[i].color;
     }
@@ -71,9 +69,9 @@ function changePalette(palette) {
 
 function resetLocks(palette) {
     for(var i = 0; i < palette.colorPalette.length; i++) {
-        if(!palette.colorPalette.locked) {
-        lockIcons[i].classList.add("hidden");
-        unlockIcons[i].classList.remove("hidden");
+        if(!palette.colorPalette[i].locked) {
+            lockIcons[i].classList.add("hidden");
+            unlockIcons[i].classList.remove("hidden");
         }
     }
 }
@@ -89,11 +87,11 @@ function displaySavedPalettes(paletteArray) {
     for (var i = 0; i < paletteArray.length; i++) {
         savedMiniPalettes.innerHTML += `
         <section class="saved-mini-palette" data-palette-index="${i}">
-              <div class="box mini" id="mini-box0" style= "background-color: ${paletteArray[i].colorPalette[0].color};"></div>
-              <div class="box mini" id="mini-box1" style= "background-color: ${paletteArray[i].colorPalette[1].color};"></div>
-              <div class="box mini" id="mini-box2" style= "background-color: ${paletteArray[i].colorPalette[2].color};"></div>
-              <div class="box mini" id="mini-box3" style= "background-color: ${paletteArray[i].colorPalette[3].color};"></div>
-              <div class="box mini" id="mini-box4" style= "background-color: ${paletteArray[i].colorPalette[4].color};"></div>
+              <div class="box mini" style= "background-color: ${paletteArray[i].colorPalette[0].color};"></div>
+              <div class="box mini" style= "background-color: ${paletteArray[i].colorPalette[1].color};"></div>
+              <div class="box mini" style= "background-color: ${paletteArray[i].colorPalette[2].color};"></div>
+              <div class="box mini" style= "background-color: ${paletteArray[i].colorPalette[3].color};"></div>
+              <div class="box mini" style= "background-color: ${paletteArray[i].colorPalette[4].color};"></div>
               <p class="trash"> 🗑 </p>
         </section>
        `;
@@ -101,11 +99,8 @@ function displaySavedPalettes(paletteArray) {
 }
 
 function toggleColorLock(event, palette) {
-    if (event.target.dataset.colorIndex) {
         palette.toggleLock(event.target.dataset.colorIndex);
         updateIcon(event, palette);
-    }
-    
 }
 
 function updateIcon(event, palette) {
@@ -116,10 +111,4 @@ function updateIcon(event, palette) {
         lockIcons[event.target.dataset.colorIndex].classList.add("hidden");
         unlockIcons[event.target.dataset.colorIndex].classList.remove("hidden");
         }
-}
-
-function deleteSavedPalette(event, paletteArray) {
-    if(event.target.classList.contains("trash")) {
-        paletteArray.splice(event.target.parentElement.dataset.paletteIndex, 1) 
-    }
 }
