@@ -27,7 +27,7 @@ var miniBox3 = document.querySelector("#mini-box3");
 var miniBox4 = document.querySelector("#mini-box4");
 var lockIcons = document.querySelectorAll(".lock-icon");
 var unlockIcons = document.querySelectorAll(".unlock-icon")
-var mainPaletteContainer = document.querySelector("#main-palette-container");
+var mainPaletteContainer = document.querySelector(".main-palette-container");
 var savedPalettesSection = document.querySelector("#saved-palettes-container");
 
 //listeners
@@ -54,7 +54,7 @@ savedPalettesSection.addEventListener('click', function(event) {
 function showPalette(palette) {
     for (var i = 0; i < boxes.length; i++) {
         boxes[i].style.backgroundColor = palette.colorPalette[i].color;
-        boxes[i].dataset.colorIndex = i;
+        //boxes[i].dataset.colorIndex = i;
         hexCodes[i].innerText = palette.colorPalette[i].color;
     }
 }
