@@ -1,6 +1,9 @@
 * {
     font-family: fantasy, sans-serif;
-    
+}
+
+.hidden {
+    display: none;
 }
 
 h1 {
@@ -42,14 +45,12 @@ body {
    width: auto;
    padding-left: 5px;
 }
+
 .main-buttons-section {
     justify-content: space-around;
     width: 50%;
 }
 
-.hidden {
-    display: none;
-}
 .hex-and-lock {
     justify-content: center;
     align-items: center;
@@ -88,12 +89,9 @@ h2 {
     margin-bottom: 10px;
 }
 
-#color-boxes {
-    justify-content: center;
-    width: 100%;
-}
 
 .box {
+    justify-content: center;
     width: 10vw;
     height: 10vw;
     border: black solid 2px;
@@ -117,7 +115,6 @@ h2 {
     font-size: medium;
     font-weight: bold;
     cursor: pointer;
-
 }
 
 .mini {
