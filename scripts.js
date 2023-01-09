@@ -21,7 +21,7 @@ var savedPaletteSection = document.querySelector(".saved-palettes");
 var newPaletteButton = document.querySelector("#new-palette-button");
 var savePaletteButton = document.querySelector("#save-palette-button");
 var savedMiniPalettes = document.querySelector(".saved-mini-palettes");
-var mainPaletteContainer = document.querySelector("#main-palette-container");
+var mainPaletteContainer = document.querySelector(".main-palette-container");
 var savedPalettesSection = document.querySelector("#saved-palettes-container");
 
 /*---------------EventListeners-----------------*/
