@@ -1,14 +1,31 @@
 * {
     font-family: fantasy, sans-serif;
+    
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 55px;
+    animation-duration: 1s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    font-size: 500%;
+    margin-left: 50%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
 }
 
 body {
     height: 100vh;
     margin: 0;
+    background: radial-gradient(circle at 10% 20%, rgba(91, 173, 254, 0.46) 0%, rgba(91, 224, 254, 0.46) 47.2%, rgba(170, 254, 235, 0.43) 90%);
 }
 
 .random-palette {
@@ -17,12 +34,25 @@ body {
     align-items: center;
     border-right: black solid 2px;
     justify-content: space-around;
+    cursor:pointer;
 }
 
 .unlock-icon, .lock-icon {
    height: 20px; 
-   width: auto; 
+   width: auto;
    padding-left: 5px;
+}
+.main-buttons-section {
+    justify-content: space-around;
+    width: 50%;
+}
+
+.hidden {
+    display: none;
+}
+.hex-and-lock {
+    justify-content: center;
+    align-items: center;
 }
 
 body, #color-boxes, .random-palette, .hex-and-lock, .main-buttons-section, .saved-mini-palettes, .saved-palettes, .saved-mini-palette {
@@ -30,6 +60,7 @@ body, #color-boxes, .random-palette, .hex-and-lock, .main-buttons-section, .save
 }
 
 .saved-palettes {
+    height: 100vh;
     display: flex;
     width: 30%;
     flex-direction: column;
@@ -74,6 +105,7 @@ h2 {
     margin-top: 30px;
     margin-bottom: 20px;
     margin-left: 10px;
+    cursor:pointer;
 }
 
 #new-palette-button, #save-palette-button {
@@ -84,19 +116,8 @@ h2 {
     box-shadow: 2px 2px #636060;
     font-size: medium;
     font-weight: bold;
-}
+    cursor: pointer;
 
-.main-buttons-section {
-    justify-content: space-around;
-    width: 50%;
-}
-
-.hidden {
-    display: none;
-}
-.hex-and-lock {
-    justify-content: center;
-    align-items: center;
 }
 
 .mini {
