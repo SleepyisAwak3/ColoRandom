@@ -3,19 +3,17 @@ ______________________________________________________
 # ColoRandom   
 
 ### Abstract:
-This Application was made with the purpose of generating random color palettes. It also has additional features of locking certain colors, saving those palettes, and even giving the user the ability to delete saved palettes. 
+This Application was made with the purpose of generating random color palettes. It also has additional features of locking certain colors, saving the palettes, and even giving the user the ability to delete specific saved palettes. 
 
 ### Installation Instructions:
 1. Fork this Repo
-2. Open terminal and navagaite where you would like to store the application.
-3. Type git clone 
-4. Copy the SSH and paste it next to git clone.
-5. Once file is pulled down and copied, navigate into the directorty romcom. 
-6. Type the phrase "open index.html" into your terminal to open the test window of the application.
+1. Open terminal and navigate where you would like to store the application. 
+1. Click `SSH` and copy and paste `git clone git@github.com:SleepyisAwak3/ColoRandom.git` into your terminal.
+1. Type the phrase `open index.html` into your terminal to open the test window of the application.
 
 ## **Or**
 
-Simply use this Deployable Link: https://sleepyisawak3.github.io/ColoRandom/
+Simply use this [Deployable Link](https://sleepyisawak3.github.io/ColoRandom/)
 
 ### Preview of App:
 
@@ -23,17 +21,17 @@ Simply use this Deployable Link: https://sleepyisawak3.github.io/ColoRandom/
 
 ### Context:
 
-Our group began on the 2nd of January and we acheived full functionality after 7 days of work. We are all in Mod 1, week 4/5 of the Turing program. 
+This project was completed in 21 hours during week 4 of the Turing program.
 
 ### Contributors:
 
-- Amber: https://github.com/Espressogoddess
+- [Amber](https://github.com/Espressogoddess)
 
-- Sam: https://github.com/SamanthaMcElhinney 
+- [Sam](https://github.com/SamanthaMcElhinney)
 
-- Michael: https://github.com/mrlobatoman 
+- [Michael](https://github.com/mrlobatoman)
 
-- Noah: https://github.com/SleepyisAwak3
+- [Noah](https://github.com/SleepyisAwak3)
 
 ### Learning Goals:
 
@@ -43,7 +41,9 @@ Our group began on the 2nd of January and we acheived full functionality after 7
 
 ### Wins + Challenges:
 
-1. A big win was when we were struggling to figure out how to get a new palette with random colors in it. 
+1. A big Challenge was when we were struggling to figure out how to get a new palette with random colors in it. 
   - We ended up making a function that used a string of the all the possible characters to use and then used a for loop to run Math.floor and Math.random. 
-2.  A big win was when we achieved the ability to toggle both the color and the changing of the lock icon after the user clicks on the color box they would like to save. 
+1.  A big win was when we achieved the ability to toggle both the color and the changing of the lock icon after the user clicks on the color box they would like to save. 
   - We used problem solving and actually took time away from the group setting to achieve this breakthrough.
+1. Another Challenge the group experinced was making sure the Data Moduel and the DOM were in sync with each other.
+  - Amber stepped up and refactored the code to
