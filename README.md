@@ -17,7 +17,7 @@ Simply use this [Deployable Link](https://sleepyisawak3.github.io/ColoRandom/)
 
 ### Preview of App:
 
-<img width="1440" alt="Screen Shot 2023-01-08 at 4 26 00 PM" src="https://user-images.githubusercontent.com/115435434/211226357-271d2483-b5a3-43c5-b403-4c6e6fac4d5e.png">
+<img width="1440" alt="app preview" src="src/colorandom.png">
 
 ### Context:
 
@@ -41,9 +41,12 @@ This project was completed in 21 hours during week 4 of the Turing program.
 
 ### Wins + Challenges:
 
-1. A big Challenge was when we were struggling to figure out how to get a new palette with random colors in it. 
-  - We ended up making a function that used a string of the all the possible characters to use and then used a for loop to run Math.floor and Math.random. 
-1.  A big win was when we achieved the ability to toggle both the color and the changing of the lock icon after the user clicks on the color box they would like to save. 
-  - We used problem solving and actually took time away from the group setting to achieve this breakthrough.
-1. Another Challenge the group experinced was making sure the Data Moduel and the DOM were in sync with each other.
-  - Amber stepped up and refactored the code to
+#### Wins
+- We were able to deepen our understanding of the connection between the Data Model and the DOM. We also now understand the importance of updating the DOM directly based upon the Data Model.
+- We progressed in working collaboratively as a team. We were able to see the value by gaining new understanding from teammates and their ways of thinking.
+- We successfully navigated working collaboratively with multiple people's schedules by remaining flexible and adaptable.
+
+#### Challenges:
+- We originally had a tough time getting the specific color to change to `locked=true` in the data model. We decided to add a data attribute to the color boxes, which corresponded to the specific lock.
+- We had a hard time successfully implementing the use of flexbox with so many elements/parents/grandparents at play. We ultimately broke the code down to see which elements we needed to target based on the direct parent/child relationship.
+- Another challenge was figuring out how to compile numbers and letters together along with `#` since letters are strings and numbers are integers. We found a way to compile them together, and our issue was solved.
