@@ -1,9 +1,10 @@
 * {
-    font-family: fantasy, sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.hidden {
-    display: none;
+body {
+    height: 100vh;
+    margin: 0;
 }
 
 h1 {
@@ -13,22 +14,37 @@ h1 {
 }
 
 @keyframes slidein {
-  from {
-    font-size: 500%;
-    margin-left: 50%;
-    width: 300%;
-  }
-
-  to {
-    margin-left: 0%;
-    width: 100%;
-  }
+    from {
+        font-size: 500%;
+        margin-left: 50%;
+        width: 300%;
+    }
+    
+    to {
+        margin-left: 50%;
+        width: 100%;
+    }
 }
 
-body {
-    height: 100vh;
-    margin: 0;
-    background: radial-gradient(circle at 10% 20%, rgba(91, 173, 254, 0.46) 0%, rgba(91, 224, 254, 0.46) 47.2%, rgba(170, 254, 235, 0.43) 90%);
+h2 {
+    justify-content: center;
+    margin-bottom: 0px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+button {
+    width: 120px;
+    height: 40px;
+    border: black solid;
+    border-radius: 2px;
+    box-shadow: 2px 2px #636060;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
 }
 
 .random-palette {
@@ -37,10 +53,10 @@ body {
     align-items: center;
     border-right: black solid 2px;
     justify-content: space-around;
-    cursor:pointer;
 }
 
-.unlock-icon, .lock-icon {
+.unlock-icon,
+.lock-icon {
    height: 20px; 
    width: auto;
    padding-left: 5px;
@@ -56,13 +72,25 @@ body {
     align-items: center;
 }
 
-body, #color-boxes, .random-palette, .hex-and-lock, .main-buttons-section, .saved-mini-palettes, .saved-palettes, .saved-mini-palette {
+body, 
+#color-boxes, 
+.random-palette, 
+.hex-and-lock, 
+.main-buttons-section, 
+.saved-mini-palettes, 
+.saved-palettes, 
+.saved-mini-palette {
     display: flex;
+}
+
+button,
+.box,
+.trash {
+    cursor: pointer;
 }
 
 .saved-palettes {
     height: 100vh;
-    display: flex;
     width: 30%;
     flex-direction: column;
     flex-wrap: wrap;
@@ -81,15 +109,6 @@ body, #color-boxes, .random-palette, .hex-and-lock, .main-buttons-section, .save
     align-items: center;
 }
 
-h2 {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 0px;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-
 .box {
     justify-content: center;
     width: 10vw;
@@ -103,18 +122,6 @@ h2 {
     margin-top: 30px;
     margin-bottom: 20px;
     margin-left: 10px;
-    cursor:pointer;
-}
-
-#new-palette-button, #save-palette-button {
-    width: 120px;
-    height: 40px;
-    border: black solid;
-    border-radius: 2px;
-    box-shadow: 2px 2px #636060;
-    font-size: medium;
-    font-weight: bold;
-    cursor: pointer;
 }
 
 .mini {
